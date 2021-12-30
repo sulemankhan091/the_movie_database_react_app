@@ -4,6 +4,7 @@ import React, { Fragment } from "react";
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
 
 // components
+import SearchBar from "./SearchBar";
 import HeroImage from "./HeroImage/Index";
 import Grid from "./Grid/index";
 import Thumb from "./Thumb";
@@ -16,7 +17,7 @@ import { useHomeFetch } from "../hooks/useHomeFetch";
 import NoImage from "../images/no_image.jpg";
 
 const Home = () => {
-	const { state, loading, error } = useHomeFetch();
+	const { state, loading, error, setSearchTerm } = useHomeFetch();
 
 	console.log(state);
 	return (
@@ -28,6 +29,7 @@ const Home = () => {
 					text={state.results[0].overview}
 				/>
 			) : null}
+			<SearchBar setSearchTerm={setSearchTerm}/>
 			<Grid header="Popular Movies">
 				{state.results.map((movie) => (
 					<Thumb

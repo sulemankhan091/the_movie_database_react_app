@@ -8,6 +8,7 @@ export const Spinner = styled.img`
     height: 50px;
     animation: spin 0.9s linear infinite;
     margin: 20px auto;
+    display:flex;
 
     @keyframes spin {
         0%{
